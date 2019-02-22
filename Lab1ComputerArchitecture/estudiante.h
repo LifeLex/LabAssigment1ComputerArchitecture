@@ -15,6 +15,18 @@ public:
     //Vector para guardar las notas
     vector<int> notas;
 
+
+    //Setters
+    void setNotas(int notas);
+
+    //Getters
+    vector<int> getNotas();
+
+    //Funciones
+    void addNota(int nota);
+    vector<int> verNotas();
+    int verNumeroDeNotas();
+
 };
 
 #endif // ESTUDIANTE_H

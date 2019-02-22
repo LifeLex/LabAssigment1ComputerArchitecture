@@ -53,9 +53,13 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../Lab1ComputerArchitecture/main.cpp \
-		../Lab1ComputerArchitecture/persona.cpp 
+		../Lab1ComputerArchitecture/persona.cpp \
+		../Lab1ComputerArchitecture/estudiante.cpp \
+		../Lab1ComputerArchitecture/profesor.cpp 
 OBJECTS       = main.o \
-		persona.o
+		persona.o \
+		estudiante.o \
+		profesor.o
 DIST          = /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/spec_pre.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/qdevice.pri \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/device_config.prf \
@@ -221,6 +225,7 @@ DIST          = /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/f
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/qt_config.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/spec_post.prf \
+		../Lab1ComputerArchitecture/.qmake.stash \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/toolchain.prf \
@@ -246,8 +251,12 @@ DIST          = /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/f
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/exceptions.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/yacc.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/lex.prf \
-		../Lab1ComputerArchitecture/Lab1ComputerArchitecture.pro ../Lab1ComputerArchitecture/persona.h ../Lab1ComputerArchitecture/main.cpp \
-		../Lab1ComputerArchitecture/persona.cpp
+		../Lab1ComputerArchitecture/Lab1ComputerArchitecture.pro ../Lab1ComputerArchitecture/persona.h \
+		../Lab1ComputerArchitecture/estudiante.h \
+		../Lab1ComputerArchitecture/profesor.h ../Lab1ComputerArchitecture/main.cpp \
+		../Lab1ComputerArchitecture/persona.cpp \
+		../Lab1ComputerArchitecture/estudiante.cpp \
+		../Lab1ComputerArchitecture/profesor.cpp
 QMAKE_TARGET  = Lab1ComputerArchitecture
 DESTDIR       = 
 TARGET        = Lab1ComputerArchitecture
@@ -434,6 +443,7 @@ Makefile: ../Lab1ComputerArchitecture/Lab1ComputerArchitecture.pro /Volumes/Disk
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/qt_config.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/mac/sdk.prf \
 		/Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/toolchain.prf \
@@ -627,6 +637,7 @@ Makefile: ../Lab1ComputerArchitecture/Lab1ComputerArchitecture.pro /Volumes/Disk
 /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/qt_config.prf:
 /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/macx-clang/qmake.conf:
 /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/exclusive_builds.prf:
 /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/mac/sdk.prf:
 /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/toolchain.prf:
@@ -669,8 +680,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Volumes/DiskExpansion/Aplicaciones/Qt/5.12.1/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Lab1ComputerArchitecture/persona.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Lab1ComputerArchitecture/main.cpp ../Lab1ComputerArchitecture/persona.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Lab1ComputerArchitecture/persona.h ../Lab1ComputerArchitecture/estudiante.h ../Lab1ComputerArchitecture/profesor.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Lab1ComputerArchitecture/main.cpp ../Lab1ComputerArchitecture/persona.cpp ../Lab1ComputerArchitecture/estudiante.cpp ../Lab1ComputerArchitecture/profesor.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -680,6 +691,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) $(TARGET) 
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -727,6 +739,15 @@ main.o: ../Lab1ComputerArchitecture/main.cpp
 
 persona.o: ../Lab1ComputerArchitecture/persona.cpp ../Lab1ComputerArchitecture/persona.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o persona.o ../Lab1ComputerArchitecture/persona.cpp
+
+estudiante.o: ../Lab1ComputerArchitecture/estudiante.cpp ../Lab1ComputerArchitecture/estudiante.h \
+		../Lab1ComputerArchitecture/persona.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o estudiante.o ../Lab1ComputerArchitecture/estudiante.cpp
+
+profesor.o: ../Lab1ComputerArchitecture/profesor.cpp ../Lab1ComputerArchitecture/profesor.h \
+		../Lab1ComputerArchitecture/persona.h \
+		../Lab1ComputerArchitecture/estudiante.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o profesor.o ../Lab1ComputerArchitecture/profesor.cpp
 
 ####### Install
 
