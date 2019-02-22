@@ -4,7 +4,7 @@
 #include "persona.h"
 
 
-class Estudiante
+class Estudiante: public Persona
 {
 public:
 

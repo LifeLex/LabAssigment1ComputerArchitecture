@@ -69,3 +69,12 @@ for (int i=0;i<medias.size();i++) {
     }
 }
 }
+
+
+void imprimir(Persona *persona)
+{
+cout << "Nombre "<< persona->getNombre()<<endl;
+cout << "Apellido "<< persona->getApellido()<<endl;
+cout << "Nombre "<< persona->getDNI()<<endl;
+
+}

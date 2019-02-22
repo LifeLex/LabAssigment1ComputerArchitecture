@@ -5,7 +5,7 @@
 #include "estudiante.h"
 
 
-class Profesor
+class Profesor: public Persona
 {
 public:
     //Constructor Destructor
