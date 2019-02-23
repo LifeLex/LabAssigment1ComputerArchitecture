@@ -30,3 +30,8 @@ void Estudiante::addNota(int nota)
 {
     notas.push_back(nota);
 }
+
+vector<int> Estudiante::getNotas()
+{
+    return notas;
+}

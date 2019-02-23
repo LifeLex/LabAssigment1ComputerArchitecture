@@ -50,8 +50,11 @@ void Profesor::media(Estudiante *estudiante)
     media=media/n.size();
 
     if (n.size()>=3) {
-        cout<<"La media del alumno es"<< media<<endl;
+        cout<<"La media del alumno es "<< media<<endl;
         medias.push_back(media);
+    }else {
+        cout<<"No hay notas suficientes en el sistema para calificar al alumno"<<endl;
+        medias.push_back(0);
     }
 
 
@@ -59,22 +62,24 @@ void Profesor::media(Estudiante *estudiante)
 
 void Profesor::mejorMedia()
 {
-float mejorMedia=0;
-Estudiante mejorAlumno;
+    float mejorMedia=0;
+    string mejorAlumno;
 
-for (int i=0;i<medias.size();i++) {
-    if (medias[i]>mejorMedia) {
-        mejorMedia= medias[i];
-        mejorAlumno= estudiantes[i];
+    for (int i=0;i<medias.size();i++) {
+        if (medias[i]>mejorMedia) {
+            mejorMedia= medias[i];
+            mejorAlumno= estudiantes[i].getNombre();
+        }
     }
-}
+
+    cout<< "La mejor media ha sido "<< mejorMedia << " del estudiante "<<mejorAlumno <<endl;
 }
 
 
-void imprimir(Persona *persona)
+void Profesor::imprimir(Persona *persona)
 {
-cout << "Nombre "<< persona->getNombre()<<endl;
-cout << "Apellido "<< persona->getApellido()<<endl;
-cout << "Nombre "<< persona->getDNI()<<endl;
+cout << "Nombre: "<< persona->getNombre()<<endl;
+//cout << "Apellido "<< persona->getApellido()<<endl;
+cout << "DNI: "<< persona->getDNI()<<endl;
 
 }
